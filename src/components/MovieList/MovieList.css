@@ -1,0 +1,56 @@
+.movie-list__wrapper {
+    background: transparent;
+    padding: 40px 0px 40px 40px;
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+    z-index: 500;
+}
+
+.movie-list__container {
+    width: 100%;
+    height: 297px;
+    overflow: hidden;
+    position: relative;
+}
+.movie-list__track {
+    position: absolute;
+    height: 297px;
+    width: auto;
+    left: 0;
+    top: 0;
+    margin-left: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    transition: margin-left .4s ease-in-out;
+}
+.selected-movie {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width:202px;
+    height: 298px;
+    border: solid 2px #fff;
+}
+.button--arrow-icon {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 50%;
+    margin-top: -25px;
+    border: none;
+    background-color: transparent;
+    background-position: center;
+    background-size: 24px;
+    background-repeat: no-repeat;
+    outline: none;
+    font-size: 0;
+}
+.button--prev {
+    background-image: url(../../assets/images/chevron-left.svg);
+    left: 0;
+}
+.button--next {
+    background-image: url(../../assets/images/chevron-right.svg);
+    right: 0;
+}

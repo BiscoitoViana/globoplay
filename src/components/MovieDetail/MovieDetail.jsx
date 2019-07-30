@@ -5,7 +5,7 @@ import MainLogo from '../../assets/images/main-logo.svg';
 import { MoviesContext } from '../../context/MovieContext';
 
 function MovieDetail(){
-    const [{selectedMovie, movieList}, setMovies] = useContext(MoviesContext);
+    const [{selectedMovie, movieList}] = useContext(MoviesContext);
     const { title, description, detailPhoto } = movieList[selectedMovie];
     return (
         <div className="movie-detail" style={{backgroundImage:`url(${detailPhoto})`}}>

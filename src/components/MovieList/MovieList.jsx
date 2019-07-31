@@ -5,7 +5,7 @@ import { MoviesContext } from '../../context/MovieContext';
 
 import './MovieList.css';
 
-function MovieList() {
+function MovieList(props) {
     const [movies, setMovies] = useContext(MoviesContext);
     const {selectedMovie, movieList} = movies;
 
@@ -15,12 +15,20 @@ function MovieList() {
     }
 
     const prevMovie = () => {
-        if ( selectedMovie === 0 ) return false;
-        setMovies( { ...movies, selectedMovie: selectedMovie - 1 } );
+        if ( selectedMovie === 0 ){
+            // setFocus('SIDE_MENU');
+        } else {
+            setMovies( { ...movies, selectedMovie: selectedMovie - 1 } );
+        }
     }
 
+    const handleKeyPress = e => {
+        alert('funfa')   
+    }
+
+
     return (
-        <section className="movie-list__wrapper">
+        <section className={props.focusedBlock === 'MAIN_TRACK' ? 'movie-list__wrapper active-block' : 'movie-list__wrapper'}>
             <div className="movie-list__container">
                 <div className="movie-list__track" style={{marginLeft: (selectedMovie * 208) * -1  + 'px'}}>
                     {

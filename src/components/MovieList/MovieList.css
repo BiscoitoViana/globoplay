@@ -1,10 +1,15 @@
 .movie-list__wrapper {
     background: transparent;
     padding: 40px 0px 40px 40px;
-    bottom: 0;
+    bottom: -100px;
     position: absolute;
     width: 100%;
     z-index: 500;
+
+    transition: bottom .4s ease-in;
+}
+.movie-list__wrapper.active-block {
+    bottom: 0px;
 }
 
 .movie-list__container {

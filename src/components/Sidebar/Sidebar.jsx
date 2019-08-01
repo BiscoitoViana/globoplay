@@ -1,20 +1,60 @@
-import React from 'react';
+import React, { forwardRef, useImperativeHandle, useState } from 'react';
+import { keys } from '../../keys';
 
 import './Sidebar.css';
 import '../../assets/styles/icons.css';
 
-function Sidebar() {
+const Sidebar = forwardRef((props, ref) => {
+    const [focusedItem, setFocus] = useState(0);
+
+    const menuItems = [
+        {text: 'Busca', icon:'search'},
+        {text: 'Início', icon:'home'},
+        {text: 'Agora na Globo', icon:'rss'},
+        {text: 'Categorias', icon:'envelope'},
+        {text: 'Minha Conta', icon:'user-circle'}
+    ]
+
+    useImperativeHandle(ref, () => ({
+        handleKeyPress(e) {
+            switch(e.keyCode){
+                case keys.KEY_UP:
+                    prevItem();
+                break;
+                case keys.KEY_RIGHT:
+                    props.setFocus('MOVIE_LIST');
+                break;
+                case keys.KEY_DOWN:
+                    nextItem()
+                break;
+                default:
+                break;
+            }   
+        }
+    }));
+
+    const nextItem = () => {
+        if( focusedItem >= menuItems.length - 1 ) return false
+        setFocus(prevFocus => prevFocus + 1);
+    }
+    const prevItem = () => {
+        if( focusedItem === 0 ) return false
+        setFocus(prevFocus => prevFocus - 1);
+    }
+
     return (
-        <aside className="sidebar">
+        <aside className={`sidebar${props.focusedBlock === 'SIDE_BAR' ? ' active-block': ''}`}>
             <ul className="sidebar-list">
-                <li className="sidebar-list__item"><i className="icon-search"></i>Busca</li>
-                <li className="sidebar-list__item"><i className="icon-home"></i>Início</li>
-                <li className="sidebar-list__item"><i className="icon-rss"></i>Agora na Globo</li>
-                <li className="sidebar-list__item"><i className="icon-envelope"></i>Categorias</li>
-                <li className="sidebar-list__item"><i className="icon-user-circle"></i>Minha Conta</li>
+                {
+                    menuItems.map( (item, index) => (
+                        <li className={`sidebar-list__item${focusedItem === index ? ' active-item': ''}`}>
+                            <i className={`icon-${ item.icon }`}></i>{ item.text }
+                        </li>
+                    ))
+                }
             </ul>
         </aside>
     )
-}
+})
 
 export default Sidebar;

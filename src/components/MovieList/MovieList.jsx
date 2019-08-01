@@ -1,13 +1,32 @@
-import React, { useContext } from 'react';
+import React, { useContext, forwardRef, useImperativeHandle } from 'react';
 import MovieItem from '../MovieItem/MovieItem';
+import { keys } from '../../keys';
 
 import { MoviesContext } from '../../context/MovieContext';
 
 import './MovieList.css';
 
-function MovieList(props) {
+const MovieList = forwardRef((props, ref) => {
     const [movies, setMovies] = useContext(MoviesContext);
     const {selectedMovie, movieList} = movies;
+
+    useImperativeHandle(ref, () => ({
+        handleKeyPress(e) {
+            switch(e.keyCode){
+                case keys.KEY_UP:
+                    props.setFocus('MOVIE_DETAIL')
+                break;
+                case keys.KEY_RIGHT:
+                    nextMovie();
+                break;
+                case keys.KEY_LEFT:
+                    prevMovie();
+                break;
+                default:
+                break;
+            }   
+        }
+    }));
 
     const nextMovie = () => {
         if ( selectedMovie >= movieList.length - 1 ) return false;
@@ -16,19 +35,15 @@ function MovieList(props) {
 
     const prevMovie = () => {
         if ( selectedMovie === 0 ){
-            // setFocus('SIDE_MENU');
+            props.setFocus('SIDE_BAR');
         } else {
             setMovies( { ...movies, selectedMovie: selectedMovie - 1 } );
         }
     }
 
-    const handleKeyPress = e => {
-        alert('funfa')   
-    }
-
 
     return (
-        <section className={props.focusedBlock === 'MAIN_TRACK' ? 'movie-list__wrapper active-block' : 'movie-list__wrapper'}>
+        <section className={props.focusedBlock === 'MOVIE_LIST' ? 'movie-list__wrapper active-block' : 'movie-list__wrapper'}>
             <div className="movie-list__container">
                 <div className="movie-list__track" style={{marginLeft: (selectedMovie * 208) * -1  + 'px'}}>
                     {
@@ -36,11 +51,11 @@ function MovieList(props) {
                     }
                 </div>
                 <div className="selected-movie"></div>
-                <button className="button--arrow-icon button--prev" onClick={prevMovie}>Prev Movie</button>
-                <button className="button--arrow-icon button--next" onClick={nextMovie}>Next Movie</button>
+                {/* <button className="button--arrow-icon button--prev" onClick={prevMovie}>Prev Movie</button>
+                <button className="button--arrow-icon button--next" onClick={nextMovie}>Next Movie</button> */}
             </div>
         </section>
     )
-}
+})
 
 export default MovieList;

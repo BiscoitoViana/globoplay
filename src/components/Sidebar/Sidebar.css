@@ -14,7 +14,7 @@
 
     transition: width .6s ease-in-out;
 }
-.sidebar:hover {
+.sidebar.active-block {
     width: 220px;
 }
 
@@ -38,7 +38,11 @@
     margin-right: 2rem;
 }
 
-.sidebar .sidebar-list__item:hover {
+.sidebar .sidebar-list__item.active-item {
+    color: #ffffff;
+    background-color: transparent;
+}
+.sidebar.active-block .sidebar-list__item.active-item {
     color: #333333;
     background-color: #ffffff;
 }

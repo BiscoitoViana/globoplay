@@ -53,6 +53,11 @@
 
 .movie-detail__buttons {
     padding: 20px 0px;
+    display: none;
+}
+.movie-detail.active-block .movie-detail__buttons {
+    display: block;
+    
 }
 .movie-detail__button {
     height: 52px;
@@ -66,7 +71,7 @@
     margin: 0 10px;
     transition: background .3s ease-in-out;
 }
-.movie-detail__button:hover {
+.movie-detail__button.active-button {
     background-color: #ffffff;
     color: #000000;
 }

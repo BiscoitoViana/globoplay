@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/globoplay/static/css/main.89d7f1e5.chunk.css",
-    "main.js": "/globoplay/static/js/main.fa39315b.chunk.js",
-    "main.js.map": "/globoplay/static/js/main.fa39315b.chunk.js.map",
+    "main.css": "/globoplay/static/css/main.09a778a2.chunk.css",
+    "main.js": "/globoplay/static/js/main.6dddc44d.chunk.js",
+    "main.js.map": "/globoplay/static/js/main.6dddc44d.chunk.js.map",
     "runtime~main.js": "/globoplay/static/js/runtime~main.c5d96dcd.js",
     "runtime~main.js.map": "/globoplay/static/js/runtime~main.c5d96dcd.js.map",
-    "static/js/2.429b015b.chunk.js": "/globoplay/static/js/2.429b015b.chunk.js",
-    "static/js/2.429b015b.chunk.js.map": "/globoplay/static/js/2.429b015b.chunk.js.map",
+    "static/js/2.00e7fdcf.chunk.js": "/globoplay/static/js/2.00e7fdcf.chunk.js",
+    "static/js/2.00e7fdcf.chunk.js.map": "/globoplay/static/js/2.00e7fdcf.chunk.js.map",
     "index.html": "/globoplay/index.html",
-    "precache-manifest.88c01f1b0f29b7b4a23f9c6a7437b185.js": "/globoplay/precache-manifest.88c01f1b0f29b7b4a23f9c6a7437b185.js",
+    "precache-manifest.280abbf3cf8b79e4d1072b33b423b26a.js": "/globoplay/precache-manifest.280abbf3cf8b79e4d1072b33b423b26a.js",
     "service-worker.js": "/globoplay/service-worker.js",
-    "static/css/main.89d7f1e5.chunk.css.map": "/globoplay/static/css/main.89d7f1e5.chunk.css.map",
+    "static/css/main.09a778a2.chunk.css.map": "/globoplay/static/css/main.09a778a2.chunk.css.map",
     "static/media/fonts.css": "/globoplay/static/media/OpenSans-SemiBold.ba5cde21.ttf",
-    "static/media/MovieList.css": "/globoplay/static/media/chevron-right.a3178a9b.svg",
+    "static/media/MovieList.css": "/globoplay/static/media/chevron-right.a56582a3.svg",
     "static/media/icons.css": "/globoplay/static/media/icomoon.c76f2e79.eot",
     "static/media/main-logo.svg": "/globoplay/static/media/main-logo.09ff18dc.svg"
   }
